@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="myCounter"
+            type="com.example.assignment_01.MyCounter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/toast_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/colorPrimary"
+        android:onClick="onToastClick"
+        android:text="@string/toastString"
+        android:textColor="?attr/colorOnPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/countup_button"
+        app:layout_constraintEnd_toStartOf="@+id/counter_display"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/counter_display"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <Button
+        android:id="@+id/countdown_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="onDownButtonClick"
+        android:text="@string/countDownString"
+        app:layout_constraintBottom_toBottomOf="@+id/counter_display"
+        app:layout_constraintEnd_toStartOf="@+id/counter_display"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/countup_button" />
+
+    <Button
+        android:id="@+id/countup_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="onUpButtonClick"
+        android:text="@string/countUpString"
+        app:layout_constraintBottom_toTopOf="@+id/countdown_button"
+        app:layout_constraintEnd_toStartOf="@+id/counter_display"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toast_button" />
+
+    <TextView
+        android:id="@+id/counter_display"
+        android:layout_width="407dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:autoSizeTextType="uniform"
+        android:background="?attr/colorSecondary"
+        android:text="@={myCounter.counter}"
+        android:textColor="?attr/colorOnSecondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.497"
+        app:layout_constraintVertical_weight="1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
